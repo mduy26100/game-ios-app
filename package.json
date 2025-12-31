@@ -1,0 +1,36 @@
+{
+  "name": "iosgods-scraper",
+  "version": "1.0.0",
+  "description": "Node.js application to scrape IOSGods API and store data in MSSQL Server",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test:db": "node -e \"require('./src/config/database.js').testConnection()\"",
+    "test:api": "node -e \"require('./src/services/apiService.js').fetchPage(1).then(data => console.log('Fetched', data.length, 'games'))\"",
+    "update:downloads": "node src/updateDownloadUrls.js",
+    "scrape:vip": "node src/fetchVipGames.js",
+    "scrape:apps": "node src/fetchApps.js",
+    "server": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "scraper",
+    "mssql",
+    "iosgods"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.0",
+    "express": "^4.18.0",
+    "jsonwebtoken": "^9.0.3",
+    "mssql": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
